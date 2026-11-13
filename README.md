@@ -14,6 +14,11 @@ the judge sees.
 - Python 3.13, standard library only, no network access, no dependencies.
 - The copy is a raw byte copy, so the output is byte-identical to the source on
   every run (same SHA-256 each time).
+- The source is checked against its expected SHA-256
+  (`89de45a4498d052f7e932243f64af39ca07c2649009bd54606d3e03289a5d4a8`) and the
+  copied file must contain the same number of bytes; otherwise the program exits
+  with a clear error instead of producing a bad entry.
+- On success it prints the output path, byte count, and SHA-256.
 
 ## Run it locally
 
@@ -21,8 +26,8 @@ the judge sees.
 mkdir -p out && MAKEFUN_OUTPUT_DIR=out python3 main.py
 ```
 
-The result is `out/entry.png`. With no `MAKEFUN_OUTPUT_DIR` set, the program writes
-to `/output/entry.png`.
+The result is `out/entry.png`, and the program prints its path, byte count, and
+SHA-256. With no `MAKEFUN_OUTPUT_DIR` set, the program writes to `/output/entry.png`.
 
 ## Note on the image
 
