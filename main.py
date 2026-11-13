@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """make.fun entry — "Make the AI judge happy".
 
-The entry is a single pre-generated image: a very happy quokka in a party hat,
-surrounded by confetti. The image was generated before the build, so this program
-does not generate or edit anything — it copies the shipped ``entry.png`` to the
-output directory as ``entry.png``.
+The entry is a single pre-generated image: a hand-made-looking crayon thank-you
+card of an orange tabby cat tucking a small sleepy robot into bed under a
+patchwork quilt, captioned "SLEEP WELL, JUDGE". The image was generated before
+the build, so this program does not generate or edit anything — it copies the
+shipped ``entry.png`` to the output directory as ``entry.png``.
 
 The copy is verified in two ways so a corrupted or truncated entry fails loudly
 instead of being submitted silently:
@@ -25,8 +26,7 @@ SOURCE = Path(__file__).resolve().parent / "entry.png"  # image shipped in the r
 OUTPUT_NAME = "entry.png"
 
 # SHA-256 of the approved entry image. If this changes, the entry changed.
-EXPECTED_SHA256 = "89de45a4498d052f7e932243f64af39ca07c2649009bd54606d3e03289a5d4a8"
-
+EXPECTED_SHA256 = "9cb4f1f1744d3495699dd36b66a19732a9fce09dd9547ca8b838c186e59c73f2"
 
 def sha256_of(path: Path) -> str:
     """Return the hex SHA-256 digest of a file, read in chunks."""
@@ -35,7 +35,6 @@ def sha256_of(path: Path) -> str:
         for chunk in iter(lambda: fh.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
-
 
 def main() -> None:
     if not SOURCE.is_file():
@@ -73,7 +72,6 @@ def main() -> None:
         f"wrote {out_path} ({copied_size} bytes, sha256 {actual})",
         file=sys.stdout,
     )
-
 
 if __name__ == "__main__":
     main()

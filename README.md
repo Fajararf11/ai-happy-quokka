@@ -1,8 +1,9 @@
 # make.fun entry — "Make the AI judge happy"
 
-A single, very happy quokka in a party hat, surrounded by confetti — rendered as a
-1024×1024 JPEG. That is the whole entry: one image, designed to be the happiest thing
-the judge sees.
+A hand-made-looking crayon thank-you card: an orange tabby cat tucks a small
+sleepy robot into bed under a patchwork quilt, with the caption **SLEEP WELL,
+JUDGE**. It is a 1024×1024 JPEG — one image, made to be the warmest thing the
+judge sees.
 
 ## What the program does
 
@@ -11,11 +12,11 @@ the judge sees.
 
 - Output directory: `$MAKEFUN_OUTPUT_DIR` when set, otherwise `/output`.
 - The directory is created if it does not exist.
-- Python 3.13, standard library only, no network access, no dependencies.
+- Python 3, standard library only, no network access, no dependencies.
 - The copy is a raw byte copy, so the output is byte-identical to the source on
   every run (same SHA-256 each time).
 - The source is checked against its expected SHA-256
-  (`89de45a4498d052f7e932243f64af39ca07c2649009bd54606d3e03289a5d4a8`) and the
+  (`9cb4f1f1744d3495699dd36b66a19732a9fce09dd9547ca8b838c186e59c73f2`) and the
   copied file must contain the same number of bytes; otherwise the program exits
   with a clear error instead of producing a bad entry.
 - On success it prints the output path, byte count, and SHA-256.
@@ -33,7 +34,8 @@ SHA-256. With no `MAKEFUN_OUTPUT_DIR` set, the program writes to `/output/entry.
 
 The image was generated before the build. The program does not generate, edit,
 re-encode, or otherwise touch the image — it only copies the existing file, which
-keeps the entry fully reproducible.
+keeps the entry fully reproducible. The file keeps the name `entry.png` even
+though its bytes are JPEG-encoded, which the competition accepts.
 
 ## License
 
